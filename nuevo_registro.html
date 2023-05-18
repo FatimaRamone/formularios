@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rexistro de usuario</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            color: #548ed0;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #339999;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 22px;
+        }
+
+        div.formulario {
+            width: 350px;
+            height: auto;
+            border: solid 3px #548ed0;
+            margin: 0 auto;
+            margin-top: 100px;
+            background-color: #ededed;
+            padding: 10px;
+            padding-bottom: 0.5cm;
+        }
+
+        div.formulario form div {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+
+        .btn-submit {
+            background-color: #3366ff;
+            color: white;
+            height: 40px;
+        }
+
+        table.checkbox-container {
+            display: flex;
+            align-items: center;
+        }
+
+        table.checkbox-container td {
+            vertical-align: middle;
+            padding-right: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            height: 40px;
+        }
+
+    </style>
+</head>
+
+<body>
+ 
+    <main>
+        <div class="formulario">
+            <div>
+                <h1>Rexistro de usuario</h1>
+            </div>
+            <form action="registro.html" method="post">
+                <div>
+                    <label for="nome"><strong>Nombre e Apelidos</strong></label>
+                    <input type="text" name="nome" id="nome" required>
+                </div>
+
+                <div>
+                    <label for="mail"><strong>Email</strong></label>
+                    <input type="email" name="mail" id="mail" required>
+                </div>
+
+                <div>
+                    <label for="pass"><strong>Contrasinal</strong></label>
+                    <input type="password" name="pass" id="pass">
+                </div>
+
+                <div>
+                    <label for="pass"><strong>Repetir Contrasinal</strong></label>
+                    <input type="password" name="pass" id="pass">
+                </div>
+
+                <div class="checkbox-container">
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="condicions" id="condicions">
+                            </td>
+                            <td>
+                                <label for="condicions">Acepto las condicións do servicio e a política de privacidade</label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div>
+                    <input type="submit" class="btn-submit" value="Rexistrarse">
+                </div>
+            </form>
+        </div>
+    </main>
+   
+</body>
+
+</html>

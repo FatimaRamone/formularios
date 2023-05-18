@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario Tetris</title>
+  <style>
+	
+
+	p{ text-align: center;
+	   font-family: Arial, Helvetica, sans-serif;
+
+	}
+
+	
+	.formulario {
+		border: 3px solid black; 
+
+    padding: 40px; /* 20 píxeles de espacio de relleno en todos los lados */
+    background-color: white; /* color de fondo gris claro */
+    width: 50%; /* ancho de la caja del 50% del contenedor */
+    margin: 0 auto; /* centrar la caja horizontalmente */
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .consulta{ 
+    background-color: black ;
+    padding: 40px; /* 20 píxeles de espacio de relleno en todos los lados */
+     /* color de fondo gris claro */
+    width: 50%; /* ancho de la caja del 50% del contenedor */
+    margin: 0 auto; /* centrar la caja horizontalmente */
+    font-family: Arial, Helvetica, sans-serif;
+
+  }
+.textarea {
+    padding: 0px;
+    width: 100%;
+	height: 100px;
+    background-color: white; /* color de fondo gris claro */
+    font-family: Arial, Helvetica, sans-serif;
+	margin: 0 auto;
+  }
+
+	h1{text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+    font-size: xx-large;
+	color: white;
+
+}
+
+
+    body {
+      margin: 0;
+      padding: 0;
+	  background-image: url('background2.webp');
+  background-size: cover;
+
+    }
+    .box {
+
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      height: 300px;
+      background-color:black;
+      animation-duration: 3s;
+      animation-fill-mode: forwards;
+    }
+
+    .box2 {
+
+position: absolute;
+left: 27%;
+transform: translateX(-50%);
+width: 300px;
+height: 300px;
+background-color:black;
+animation-duration: 3s;
+animation-fill-mode: forwards;
+}
+    #l-shape1 {
+		border-bottom: 3px solid black; /* borde negro de 1 píxel */
+    border-right:3px solid black; 
+    border-left: 3px solid black; 
+		
+
+      top: -100px;
+      animation-name: move-down1;
+    }
+    #l-shape2 {
+		border-top: 3px solid black; /* borde negro de 1 píxel */
+    border-right:3px solid black; 
+    border-left: 3px solid black; 
+      top: -100px;
+      animation-name: move-down2;
+    }
+
+    #l-shape3 {
+		border-top: 3px solid black; /* borde negro de 1 píxel */
+    border-right:3px solid black; 
+    border-left: 3px solid black; 
+      top: 300px;
+      animation-name: move-down2;
+    }
+    @keyframes move-down1 {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(calc(100vh - 100px));
+      }
+    }
+    @keyframes move-down2 {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(calc(100vh - 100px));
+      }
+    }
+
+	input[type="submit"] {
+  margin-right: 40px;
+  margin-left: 6cm;
+}
+
+input[type="reset"] {
+  margin-left: 120px;
+  margin-left: 6cm;
+}
+
+  </style>
+</head>
+<body>
+  <div id="l-shape3" class="box2">
+    <div class="consulta">
+      <br>
+      <br>
+    <h1>CONSULTA</h1>
+
+    <select name ="motivo" >
+<option value="1"  font-family: Arial, Helvetica, sans-serif>Información de productos</option>
+<option value="2">Consulta administrativa</option>
+<option value="3">Presentar una reclamación</option>
+
+    </select>
+  </div>
+  </div>
+  <div id="l-shape1" class="box">
+	<br>
+	
+	<P >Mensaje</P>
+
+
+
+<form action="procesar.php" method="" enctype="">
+	<div class="formulario">
+		<textarea name ="textarea" class="textarea" placeholder="Escribe aquí tu mensaje"></textarea>
+
+
+</div>
+ 
+ <div >
+<input type ="submit" value="Enviar" />  <br> 
+<input type="reset" value="Limpiar"/> 
+</div>
+</form>
+</div>
+  <div id="l-shape2" class="box"><h1>FORMULARIO</h1>
+
+<div class="formulario">
+<form>
+	
+	Usuario : <input type ="text" placeholder="UserName" name ="user"/> <br>
+	Email :<input type="email" placeholder="E-mail" name="email"/> <br>
+
+</div>
+
+</div>
+</div>
+  <script>
+    var box1 = document.getElementById("l-shape1");
+    var box2 = document.getElementById("l-shape2");
+    var position1 = 0;
+    var position2 = 0;
+    var speed = 2;
+    var direction1 = 1;
+    var direction2 = 1;
+    setInterval(function() {
+      position1 += speed * direction1;
+      if (position1 >= window.innerHeight - box1.offsetHeight) {
+        direction1 = 0;
+        position1 = window.innerHeight - box1.offsetHeight;
+      }
+      box1.style.top = position1 + "px";
+      if (position1 === window.innerHeight - box1.offsetHeight) {
+        position2 += speed * direction2;
+        if (position2 >= window.innerHeight - box2.offsetHeight) {
+          position2 = window.innerHeight - box2.offsetHeight;
+        }
+        if (position2 + box2.offsetHeight > position1) {
+          position2 = position1 - box2.offsetHeight;
+        }
+        box2.style.top = position2 + "px";
+      }
+    }, 10);
+  </script>
+</body>
+</html>

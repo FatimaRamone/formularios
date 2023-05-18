@@ -1,0 +1,72 @@
+p {
+  width: 50%; /* Cambia el valor al ancho deseado */
+  white-space: nowrap;
+  text-align: center;
+  font-size: large;
+  padding: 15px;
+  margin-left: 40px;
+  display: block;
+  margin: auto;
+  width: 90%;
+  border-radius: 200px;
+}
+
+#formulario {
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 200px;
+  position: fixed;
+  bottom: 0;
+  left: -420px;
+  width: 415px;
+  height: 400px;
+  background-color: white;
+  padding: 25px;
+  box-sizing: border-box;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#form {
+  border-style: solid;
+  border-color: black;
+  border-width: 7px;
+  border-radius: 200px;
+  text-align: center;
+  font-size: small;
+  padding: 20px;
+  margin-left: 40px;
+  margin-top: 200px;
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+
+#submit {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  width: 30%;
+  margin-left: 120px;
+}
+
+.background-animation {
+  position: fixed;
+  top: -55px;
+  right: -100%; /* Inicia fuera de la pantalla hacia la derecha */
+  width: 105%;
+  height: 105%;
+  background-image: url('bike.png');
+  background-repeat: no-repeat;
+  background-position: 0 -23px;
+  animation: slideBackground 2s linear forwards;
+}
+
+@keyframes slideBackground {
+  from {
+    background-position: 0 0;
+    right: -100%; /* Inicia fuera de la pantalla hacia la derecha */
+  }
+  to {
+    background-position: 100% 0;
+    right: 0; /* Llega a la posición inicial, mostrándose completamente */
+  }
+}
